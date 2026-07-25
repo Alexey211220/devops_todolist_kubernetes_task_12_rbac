@@ -21,7 +21,7 @@ Run the script from the root directory of the repository:
 Run:
 
 ```zsh
-kubectl get pods
+kubectl get pods -n todoapp
 ```
 
 ```bash
@@ -34,7 +34,7 @@ SERVICEACCOUNT=/var/run/secrets/kubernetes.io/serviceaccount
 APISERVER=https://kubernetes.default.svc
 TOKEN=$(cat ${SERVICEACCOUNT}/token)
 CACERT=${SERVICEACCOUNT}/ca.crt
-curl --cacert ${CACERT} --header "Authorization: Bearer ${TOKEN}" -X GET ${# APISERVER}/api/v1/namespaces/todoapp/secrets
+curl --cacert ${CACERT} --header "Authorization: Bearer ${TOKEN}" -X GET ${APISERVER}/api/v1/namespaces/todoapp/secrets
 ```
 
 You have to see output simular to my in file output.png
